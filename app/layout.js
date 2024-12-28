@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Navigation from "./components/Nav"; // Import Nav component
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,7 +21,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <Navigation /> {/* Add the Nav component here */}
+        {children} {/* Keep the children rendering below the nav */}
       </body>
     </html>
   );
