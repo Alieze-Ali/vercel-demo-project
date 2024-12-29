@@ -40,3 +40,47 @@ a {
     color-scheme: dark;
   }
 }
+
+/* --- Centered Page Layout for Question Pages --- */
+.centered-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers content horizontally */
+  justify-content: flex-start; /* Aligns content to start at the top */
+  min-height: 100vh; /* Ensures the container takes up full viewport height */
+  text-align: center; /* Centers text within each child element */
+  padding: 20px; /* Adds space around the content */
+  padding-top: 25vh; /* Moves content down to start 1/4 of the viewport height */
+}
+
+.centered-page h1 {
+  font-size: 2rem; /* Adjust heading size */
+  margin-bottom: 16px; /* Adds space below the question */
+}
+
+.centered-page p {
+  font-size: 1.25rem; /* Adjust text size for answers */
+  margin-bottom: 24px; /* Adds space between paragraphs */
+  max-width: 600px; /* Restricts paragraph width for readability */
+}
+
+/* Styling for Sub-Parts of the Question */
+.centered-page ol {
+  list-style: none; /* Removes default numbering */
+  margin-top: 16px;
+  padding: 0;
+  width: 100%; /* Makes the list container take up full width */
+  max-width: 600px; /* Restricts the list width to ensure alignment */
+}
+
+.centered-page li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  text-align: center; /* Ensures sub-parts align with main content */
+  line-height: 1.5; /* Improves readability for longer content */
+  word-wrap: break-word; /* Ensures long text breaks to the next line */
+}
+
+.centered-page li strong {
+  font-weight: bold;
+}

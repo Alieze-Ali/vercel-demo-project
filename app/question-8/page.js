@@ -2,9 +2,10 @@
 
 export default function Question8() {
     return (
-      <div>
+      <div className="centered-page">
         <h1>Question 8</h1>
-        <p>This is the content for Question 8. Add your answer here.</p>
+        <p>How could we improve or alter this familiarization exercise?</p>
+        <p>Add your answer here.</p>
       </div>
     );
   }
