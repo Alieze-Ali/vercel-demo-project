@@ -1,0 +1,130 @@
+/* Answer.module.css */
+
+/* Container for the answer section */
+.answerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    margin-top: 20px; /* Add some spacing above */
+    padding: 20px; /* Add some padding for spacing */
+    background-color: #f9f9f9; /* Light background color for contrast */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 800px; /* Limit the width of the answer section */
+    margin-left: auto; /* Center the answer section horizontally */
+    margin-right: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    text-align: left !important; /* Ensure all text is left-aligned */
+  }
+  
+  .answerSection {
+    text-align: left !important;
+    margin-top: 20px;
+  } 
+  /* Title (e.g., "Answer") */
+  /* Bigger Answer title styling */
+  .answerTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 10px; /* Add spacing below the title */
+  }
+
+  /* Subject line styling */
+  .subjectLine {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px; /* Add spacing below the subject line */
+  }
+
+  /* Smaller Content title styling */
+.contentTitle {
+    font-size: 1rem; /* Make content titles smaller */
+    font-weight: 600; /* Slightly less bold */
+    color: #444; /* Slightly lighter color for differentiation */
+    margin-bottom: 8px; /* Space below the title */
+  }
+  
+ 
+
+  /* Paragraph styling */
+  .answerParagraph {
+    line-height: 1.6;
+    font-size: 1rem !important;
+    color: #444;
+    margin-bottom: 10px; /* Add spacing between paragraphs */
+    display: inline;
+    text-align: left !important;
+  }
+  
+  /* Footer (e.g., signature) */
+  .answerFooter {
+    margin-top: 20px; /* Add spacing above the footer */
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left;
+    line-height: 1.4; /* Improve readability */
+    padding: 0 !important;
+  }
+  
+  /* Styles for unordered lists */
+.answerContainer ul {
+    list-style-type: disc; /* Use bullets for unordered lists */
+    margin-left: 20px; /* Add some left margin for indentation */
+    margin-bottom: 10px; /* Space below the list */
+    padding-left: 20px; /* Ensure padding matches the indentation */
+    text-align: left;
+   
+  }
+  
+  /* Styles for ordered lists */
+  .answerContainer ol {
+    list-style-type: decimal; /* Use numbers for ordered lists */
+    margin-left: 20px; /* Add left margin for indentation */
+    margin-bottom: 10px; /* Space below the list */
+    padding-left: 20px; /* Match padding with unordered lists */
+    text-align: left;
+  }
+  
+  /* List items */
+  .answerContainer li {
+    margin-bottom: 16px; /* Space between list items */
+    line-height: 1.5; /* Improve readability */
+    font-size: 1rem; /* Match the font size of paragraphs */
+    color: #444; /* Keep list text readable */
+    text-align: left;
+  }
+
+  /* Container for links */
+.linkContainer {
+    margin-top: 10px; /* Space above the link section */
+  }
+  
+  /* Styling for links */
+  .link {
+    color: #0070f3; /* Default link color (blue) */
+    text-decoration: none; 
+    font-size: 1rem; /* Match the font size of paragraphs */
+  }
+  
+  .link:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline; /* Underline for clarity */
+  }
+  
+  /* Unordered list for links */
+.linkList {
+  list-style-type: disc; /* Display bullets for list items */
+  margin-left: 20px; /* Indent the list */
+  padding-left: 20px; /* Add padding for better alignment */
+  margin-bottom: 20px; /* Space below the list */
+  text-align: left;
+}
+
+/* List items within the unordered list */
+.linkListItem {
+  margin-bottom: 10px; /* Space between list items */
+  text-align: left !important;
+}
+

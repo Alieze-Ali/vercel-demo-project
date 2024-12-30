@@ -47,10 +47,10 @@ a {
   flex-direction: column;
   align-items: center; /* Centers content horizontally */
   justify-content: flex-start; /* Aligns content to start at the top */
-  min-height: 100vh; /* Ensures the container takes up full viewport height */
+  min-height: auto; /* Ensures the container takes up full viewport height */
   text-align: center; /* Centers text within each child element */
   padding: 20px; /* Adds space around the content */
-  padding-top: 25vh; /* Moves content down to start 1/4 of the viewport height */
+  padding-top: 5vh; /* Moves content down to start 1/4 of the viewport height */
 }
 
 .centered-page h1 {
@@ -63,6 +63,7 @@ a {
   margin-bottom: 24px; /* Adds space between paragraphs */
   max-width: 600px; /* Restricts paragraph width for readability */
 }
+
 
 /* Styling for Sub-Parts of the Question */
 .centered-page ol {

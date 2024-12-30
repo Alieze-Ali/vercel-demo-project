@@ -13,12 +13,12 @@ export default function Home() {
           height={38}
           priority
         />
-        <ol>
+        {/* <ol>
           <li>
             Get started by editing <code>app/page.js</code>.
           </li>
           <li>Save and see your changes instantly.</li>
-        </ol>
+        </ol> */}
 
         <div className={styles.ctas}>
           <a
