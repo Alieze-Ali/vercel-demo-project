@@ -2,6 +2,7 @@
 import QuestionLayout from "../components/QuestionsLayout"; // Layout for the question
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
+import Navigation from "../components/Nav"; // Navigation component
 import styles from "../components/Answer.module.css"; // Styles for the answer container
 
 export default function Question3() {
@@ -40,34 +41,42 @@ export default function Question3() {
   };
 
   return (
-    <QuestionLayout
-      title="Question 3"
-      questionContent={[
-        "Through use of a monitoring dashboard, you notice that an Enterprise customer has reduced the number of builds and their usage has gone down by about half quarter over quarter. Please write an email to the champion and executive sponsor of the account to re-engage and start to perform some discovery.",
-      ]}
-      subParts={[
-        "Your customer is an SMB with yearly revenue about $5.5 million, 20 employees total with one developer. They have a $22K ARR Vercel subscription. The executive sponsor is the VP of marketing and Vercel hosts their marketing pages. They have a reverse proxy in front of Vercel (Cloudflare) and history shows some errors in their builds. The executive sponsorʼs name is Alex (she/her), Engineering Manager. The champion, Tanner– the lead on the project– it is found out, has left the company.",
-      ]}
-    >
-      {/* Render the answer section */}
-      <div className={styles.answerContainer}>
-        <h1 className={styles.answerTitle}>{answer.title}</h1> {/* Render the answer title */}
-        <SubjectLine subject={answer.subject} /> {/* Render the subject line */}
-        <p className={styles.answerParagraph}>{answer.greeting}</p> {/* Render the greeting */}
+    <div>
+      {/* Question Layout */}
+      <QuestionLayout
+        title="Question 3"
+        questionContent={[
+          "Through use of a monitoring dashboard, you notice that an Enterprise customer has reduced the number of builds and their usage has gone down by about half quarter over quarter. Please write an email to the champion and executive sponsor of the account to re-engage and start to perform some discovery.",
+        ]}
+        subParts={[
+          "Your customer is an SMB with yearly revenue about $5.5 million, 20 employees total with one developer. They have a $22K ARR Vercel subscription. The executive sponsor is the VP of marketing and Vercel hosts their marketing pages. They have a reverse proxy in front of Vercel (Cloudflare) and history shows some errors in their builds. The executive sponsorʼs name is Alex (she/her), Engineering Manager. The champion, Tanner– the lead on the project– it is found out, has left the company.",
+        ]}
+      >
+        {/* Answer Section */}
+        <div className={styles.answerContainer}>
+          <h1 className={styles.answerTitle}>{answer.title}</h1> {/* Render the answer title */}
+          <SubjectLine subject={answer.subject} /> {/* Render the subject line */}
+          <p className={styles.answerGreeting}>{answer.greeting}</p> {/* Render the greeting */}
 
-        {/* Render each section of the answer dynamically */}
-        {answer.content.map((section, index) => (
-          <AnswerSection key={index} section={section} />
-        ))}
+          {/* Render each section of the answer dynamically */}
+          {answer.content.map((section, index) => (
+            <AnswerSection key={index} section={section} />
+          ))}
 
-        {/* Render the signature */}
-        <footer className={styles.answerFooter}>
-          <p>Warm regards,</p>
-          <p>{answer.signature.name}</p>
-          <p>{answer.signature.title}</p>
-          <p>{answer.signature.email}</p>
-        </footer>
-      </div>
-    </QuestionLayout>
+          {/* Render the signature */}
+          <footer className={styles.answerFooter}>
+            <p>Warm regards,</p>
+            <p>{answer.signature.name}</p>
+            <p>{answer.signature.title}</p>
+            <p>{answer.signature.email}</p>
+          </footer>
+        </div>
+      </QuestionLayout>
+
+      {/* Bottom Navigation */}
+      <footer>
+        <Navigation />
+      </footer>
+    </div>
   );
 }

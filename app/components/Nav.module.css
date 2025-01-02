@@ -1,14 +1,23 @@
+
 .nav {
-    /* Arrange links horizontally  */
-    display: flex;
-    /* Add equal spacing between links */
-    justify-content: space-around;
-    /* Add some padding around nav bar */
-    padding: 1rem;
-    /* Set the background to black */
-    background: #000;
-  }
-  
+  /* Arrange links horizontally */
+  display: flex;
+  /* Distribute links evenly with equal spacing around them */
+  justify-content: space-between;
+  /* Center links vertically */
+  align-items: center;
+  /* Add some padding around nav bar */
+  padding: 1rem 2rem; /* Adjusted padding for better spacing */
+  /* Set the background to black */
+  background: #000;
+  /* Ensure it spans the full width */
+  width: 100%;
+  /* Allow the nav to follow normal document flow */
+  position: relative;
+  /* Set text color to white for contrast */
+  color: #fff;
+}
+
   /* Set text color to white */
   .nav a {
     color: #fff;

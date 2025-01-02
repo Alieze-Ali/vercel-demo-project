@@ -6,7 +6,8 @@
     flex-direction: column;
     align-items: flex-start; /* Align content to the left */
     margin-top: 20px; /* Add some spacing above */
-    padding: 20px; /* Add some padding for spacing */
+    margin-bottom: 20px;
+    padding: 30px; /* Add some padding for spacing */
     background-color: #f9f9f9; /* Light background color for contrast */
     border: 1px solid #ddd; /* Light border */
     border-radius: 8px; /* Rounded corners */
@@ -17,6 +18,8 @@
     text-align: left !important; /* Ensure all text is left-aligned */
   }
   
+
+
   .answerSection {
     text-align: left !important;
     margin-top: 20px;
@@ -38,6 +41,21 @@
     margin-bottom: 10px; /* Add spacing below the subject line */
   }
 
+  /* Greeting Styling */
+.answerGreeting {
+  margin: 5px 0 0 0 !important; /* Remove any default margin */
+  padding: 0 !important; /* Remove any default padding */
+  font-size: 1rem !important; /* Match the font size of the paragraph */
+  color: #444; /* Consistent text color */
+  line-height: 1.4; /* Adjust line-height for readability */
+}
+
+.centered-page > p {
+  font-size: 1.25rem;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
   /* Smaller Content title styling */
 .contentTitle {
     font-size: 1rem; /* Make content titles smaller */
@@ -47,26 +65,41 @@
   }
   
  
-
   /* Paragraph styling */
   .answerParagraph {
     line-height: 1.6;
     font-size: 1rem !important;
     color: #444;
-    margin-bottom: 10px; /* Add spacing between paragraphs */
+    margin-bottom: 5px 0 0 0; /* Add spacing between paragraphs */
     display: inline;
     text-align: left !important;
   }
   
+  /* Paragraph styling for ordered list descriptions */
+.listItemDescription {
+  font-size: 1rem; /* Match the font size of paragraphs */
+  line-height: 1.5; /* Improve readability */
+  margin-top: 5px; /* Add a small margin for separation */
+  color: #444; /* Keep consistent text color */
+  text-align: left; /* Ensure left alignment */
+}
+
   /* Footer (e.g., signature) */
   .answerFooter {
     margin-top: 20px; /* Add spacing above the footer */
-    font-size: 0.9rem;
+    font-size: 14px !important;
     color: #666;
     text-align: left;
     line-height: 1.4; /* Improve readability */
     padding: 0 !important;
   }
+
+  .answerFooter p {
+    margin: 0; /*Remove default paragraph margin */
+    font-size: inherit; /*streamline font-size */
+  }
+
+
   
   /* Styles for unordered lists */
 .answerContainer ul {
@@ -128,3 +161,9 @@
   text-align: left !important;
 }
 
+/* Bottom navigation */
+.bottomNavigation {
+  margin-top: 20px; /* Add spacing above the navigation */
+  text-align: center; /* Center the navigation links */
+  width: 100%; /* Ensure it spans the full width */
+}

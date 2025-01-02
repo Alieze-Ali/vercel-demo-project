@@ -1,4 +1,5 @@
 .page {
+  /* Variables for light mode */
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
@@ -6,18 +7,22 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
+  /* Changed grid-template-rows to include an additional row for bottomNav */
   display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  grid-template-rows: auto 1fr auto; /* Layout for header, main content, and footer */
   align-items: center;
   justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  min-height: 100svh; /* Ensure full viewport height */
+  padding: 0; /* Reset unnecessary padding */
+  padding-bottom: 0px; /* Matches .bottomNav height */
+  gap: 64px; /* Space between grid rows */
   font-family: var(--font-geist-sans);
+  
 }
 
 @media (prefers-color-scheme: dark) {
   .page {
+    /* Variables for dark mode */
     --gray-rgb: 255, 255, 255;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
@@ -31,7 +36,9 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  grid-row-start: 2;
+  grid-row-start: 2; /* Main content remains in the second row */
+  
+
 }
 
 .main ol {
@@ -94,9 +101,13 @@ a.secondary {
 }
 
 .footer {
-  grid-row-start: 3;
+  grid-row-start: 3; /* Footer remains in the third row */
   display: flex;
   gap: 24px;
+  justify-content: center; /* Ensure centered alignment */
+  width: 100%; /* Full width of the page */
+  background: #000; /* Matches nav background */
+  color: #fff; /* Ensure contrast */
 }
 
 .footer a {
@@ -109,7 +120,25 @@ a.secondary {
   flex-shrink: 0;
 }
 
-/* Enable hover only on non-touch devices */
+.bottomNav {
+  position: fixed; /* Fix it to the bottom of the viewport */
+  bottom: 0; /* Align it to the bottom of the screen */
+  left: 0; /* Start at the left edge of the screen */
+  right: 0; /* Ensure it spans across the page */
+  width: 100vw; /* Full width of the viewport */
+  height: 50px; /* Consistent height */
+  display: flex; /* Use flexbox for alignment */
+  justify-content: space-between; /* Add space between the links */
+  align-items: center; /* Center the links vertically */
+  background-color: #000; /* Black background */
+  color: #fff; /* White text for contrast */
+  padding: 0 20px; /* Add left and right padding */
+  border-top: 1px solid #ddd; /* Optional: Add a separator line */
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+
+
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
@@ -130,7 +159,7 @@ a.secondary {
 @media (max-width: 600px) {
   .page {
     padding: 32px;
-    padding-bottom: 80px;
+    padding-bottom: 80px; /* Extra bottom padding for smaller screens */
   }
 
   .main {

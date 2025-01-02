@@ -2,14 +2,14 @@
 import QuestionLayout from "../components/QuestionsLayout"; // Layout for the question
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
+import Navigation from "../components/Nav"; // Navigation component
 import styles from "../components/Answer.module.css"; // Styles for the answer container
 
 export default function Question2() {
-  // Define the answer object
   const answer = {
-    title: "Answer", // Main title of the answer section
-    subject: "Personalizing Your Online Shop with Vercel, Next.js, and Statsig", // Subject line for the email
-    greeting: "Hey Trevor,", // Greeting line
+    title: "Answer",
+    subject: "Personalizing Your Online Shop with Vercel, Next.js, and Statsig",
+    greeting: "Hey Trevor,",
     content: [
       {
         paragraphs: [
@@ -19,9 +19,30 @@ export default function Question2() {
       {
         sectionTitle: "Quick Overview",
         unorderedList: [
-          "Edge Functions: Run at the edge of Vercel’s global network, close to users, for low-latency tasks.",
-          "Serverless Functions: Handle backend logic in the cloud, not necessarily at the edge.",
-          "Edge Middleware: Runs lightweight code before a request reaches your application, enabling geolocation-based logic.",
+          {
+            title: "Edge Functions",
+            details: [
+              "What They Do: Run at the edge of Vercel’s global network, close to users, for low-latency tasks.",
+              "When to Use: Perfect for real-time personalization, like tailoring content or checking geolocation.",
+              "Example: Validate a user's geolocation and customize their shopping experience in milliseconds.",
+            ],
+          },
+          {
+            title: "Serverless Functions",
+            details: [
+              "What They Do: Handle backend logic in the cloud, not necessarily at the edge.",
+              "When to Use: Great for tasks like database interactions, heavy processing, or scheduled jobs.",
+              "Example: Fetch inventory data or process orders that don’t require immediate user feedback.",
+            ],
+          },
+          {
+            title: "Edge Middleware",
+            details: [
+              "What It Does: Runs lightweight code before a request reaches your application, enabling geolocation-based logic.",
+              "When to Use: Ideal for handling authentication, A/B testing, or geolocation-based content delivery.",
+              "Example: Dynamically block or modify responses based on a user’s location.",
+            ],
+          },
         ],
       },
       {
@@ -87,46 +108,85 @@ export async function middleware(request) {
       },
     ],
     signature: {
-      name: "Alieze", // Your name
-      title: "Customer Success Manager", // Your title
-      email: "alieze@vercel.com", // Your email
+      name: "Alieze",
+      title: "Customer Success Manager",
+      email: "alieze@vercel.com",
     },
   };
 
   return (
-    <QuestionLayout
-      title="Question 2"
-      questionContent={[
-        "A customer has reached out asking, when should I choose to use Edge Functions, Serverless Functions, or Edge Middleware with Vercel? Please reply to the customer.",
-      ]}
-      subParts={[
-        "Your Enterprise customer is Trevor (they/them), a frontend developer at a winery using Next.js and Statsig. They are primarily interested in being able to use the Vercel platform with Next.js to do personalization for their online shop based on geolocation (some places donʼt allow for shipping of alcohol via delivery).",
-      ]}
-    >
-      {/* Answer Container */}
-      <div className={styles.answerContainer}>
-        {/* Answer Title */}
-        <h1 className={styles.answerTitle}>{answer.title}</h1>
+    <div>
+      <QuestionLayout
+        title="Question 2"
+        questionContent={[
+          "A customer has reached out asking, when should I choose to use Edge Functions, Serverless Functions, or Edge Middleware with Vercel? Please reply to the customer.",
+        ]}
+        subParts={[
+          "Your Enterprise customer is Trevor (they/them), a frontend developer at a winery using Next.js and Statsig. They are primarily interested in being able to use the Vercel platform with Next.js to do personalization for their online shop based on geolocation (some places donʼt allow for shipping of alcohol via delivery).",
+        ]}
+      >
+        {/* Answer Container */}
+        <div className={styles.answerContainer}>
+          {/* Answer Title */}
+          <h1 className={styles.answerTitle}>{answer.title}</h1>
 
-        {/* Subject Line */}
-        <SubjectLine subject={answer.subject} />
+          {/* Subject Line */}
+          <SubjectLine subject={answer.subject} />
 
-        {/* Greeting */}
-        <p className={styles.answerParagraph}>{answer.greeting}</p>
+          {/* Greeting */}
+          <p className={styles.answerGreeting}>{answer.greeting}</p>
 
-        {/* Answer Sections */}
-        {answer.content.map((section, index) => (
-          <AnswerSection key={index} section={section} />
-        ))}
+          {/* Render Answer Sections */}
+          {answer.content.map((section, index) => {
+            if (section.unorderedList) {
+              return (
+                <div key={index} className={styles.answerSection}>
+                  <h3 className={styles.contentTitle}>
+                    {section.sectionTitle}
+                  </h3>
+                  <ul className={styles.unorderedList}>
+                    {section.unorderedList.map((item, idx) => {
+                      if (typeof item === "object") {
+                        return (
+                          <li key={idx}>
+                            <strong>{item.title}:</strong>
+                            <ul>
+                              {item.details.map((detail, i) => (
+                                <li key={i} className={styles.answerParagraph}>
+                                  {detail}
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        );
+                      }
+                      return (
+                        <li key={idx} className={styles.answerParagraph}>
+                          {item}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            }
+            return <AnswerSection key={index} section={section} />;
+          })}
 
-        {/* Render the signature */}
-        <footer className={styles.answerFooter}>
-          <p>Best,</p>
-          <p>{answer.signature.name}</p>
-          <p>{answer.signature.title}</p>
-          <p>{answer.signature.email}</p>
-        </footer>
-      </div>
-    </QuestionLayout>
+          {/* Render the signature */}
+          <footer className={styles.answerFooter}>
+            <p>Best,</p>
+            <p>{answer.signature.name}</p>
+            <p>{answer.signature.title}</p>
+            <p>{answer.signature.email}</p>
+          </footer>
+        </div>
+      </QuestionLayout>
+
+      {/* Bottom Navigation */}
+      <footer className={styles.bottomNavigation}>
+        <Navigation />
+      </footer>
+    </div>
   );
 }

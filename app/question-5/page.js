@@ -2,6 +2,7 @@
 import QuestionLayout from "../components/QuestionsLayout";
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
+import Navigation from "../components/Nav"; // Navigation component
 import styles from "../components/Answer.module.css"; // Styles for the answer container
 
 export default function Question5() {
@@ -68,40 +69,48 @@ export default function Question5() {
   };
 
   return (
-    <QuestionLayout
-      title="Question 5"
-      questionContent={[
-        "A Pro customer who typically spends $900 monthly on Vercel has experienced a sudden increase to $2,100 for their next billing period due to increased data transfer costs. Their main website also shows poor Core Web Vitals performance, specifically a failed Largest Contentful Paint score.",
-        "Be proactive in reaching out to this customer about their increased usage and costs. Engage them in a conversation that explores the situation and leads to mutually beneficial solutions.",
-      ]}
-      subParts={[
-        "Your champion is Travis (he/him) and he is the lead developer for a mobile game company, $14 million in revenue, 100 employees/10 Vercel team members. They are NOT an Enterprise customer yet, but have spent on average $900 in the last three months on Vercel. They are headquartered in Singapore.",
-      ]}
-    >
-      {/* Answer Container */}
-      <div className={styles.answerContainer}>
-        {/* Answer Title */}
-        <h1 className={styles.answerTitle}>{answer.title}</h1>
+    <div>
+      {/* Question Layout */}
+      <QuestionLayout
+        title="Question 5"
+        questionContent={[
+          "A Pro customer who typically spends $900 monthly on Vercel has experienced a sudden increase to $2,100 for their next billing period due to increased data transfer costs. Their main website also shows poor Core Web Vitals performance, specifically a failed Largest Contentful Paint score.",
+          "Be proactive in reaching out to this customer about their increased usage and costs. Engage them in a conversation that explores the situation and leads to mutually beneficial solutions.",
+        ]}
+        subParts={[
+          "Your champion is Travis (he/him) and he is the lead developer for a mobile game company, $14 million in revenue, 100 employees/10 Vercel team members. They are NOT an Enterprise customer yet, but have spent on average $900 in the last three months on Vercel. They are headquartered in Singapore.",
+        ]}
+      >
+        {/* Answer Container */}
+        <div className={styles.answerContainer}>
+          {/* Answer Title */}
+          <h1 className={styles.answerTitle}>{answer.title}</h1>
 
-        {/* Subject Line */}
-        <SubjectLine subject={answer.subject} />
+          {/* Subject Line */}
+          <SubjectLine subject={answer.subject} />
 
-        {/* Greeting */}
-        <p className={styles.answerParagraph}>{answer.greeting}</p>
+          {/* Greeting */}
+          <p className={styles.answerGreeting}>{answer.greeting}</p>
 
-        {/* Answer Sections */}
-        {answer.content.map((section, index) => (
-          <AnswerSection key={index} section={section} />
-        ))}
+          {/* Answer Sections */}
+          {answer.content.map((section, index) => (
+            <AnswerSection key={index} section={section} />
+          ))}
 
-        {/* Render the signature */}
-        <footer className={styles.answerFooter}>
-          <p>Best,</p>
-          <p>{answer.signature.name}</p>
-          <p>{answer.signature.title}</p>
-          <p>{answer.signature.email}</p>
-        </footer>
-      </div>
-    </QuestionLayout>
+          {/* Render the signature */}
+          <footer className={styles.answerFooter}>
+            <p>Best,</p>
+            <p>{answer.signature.name}</p>
+            <p>{answer.signature.title}</p>
+            <p>{answer.signature.email}</p>
+          </footer>
+        </div>
+      </QuestionLayout>
+
+      {/* Bottom Navigation */}
+      <footer>
+        <Navigation />
+      </footer>
+    </div>
   );
 }

@@ -3,6 +3,7 @@ import QuestionLayout from "../components/QuestionsLayout"; // Layout for the qu
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
 import styles from "../components/Answer.module.css"; // Styles for the answer container
+import Navigation from "../components/Nav"; // Navigation component
 
 export default function Question1() {
   // Define the question content
@@ -90,7 +91,7 @@ export default function Question1() {
       <div className={styles.answerContainer}>
         <h1 className={styles.answerTitle}>{answer.title}</h1> {/* Render the answer title */}
         <SubjectLine subject={answer.subject} /> {/* Render the subject line */}
-        <p className={styles.answerParagraph}>{answer.greeting}</p> {/* Render the greeting */}
+        <p className={styles.answerGreeting}>{answer.greeting}</p> {/* Render the greeting */}
 
         {/* Render each section of the answer dynamically */}
         {answer.content.map((section, index) => (
@@ -105,6 +106,12 @@ export default function Question1() {
           <p>{answer.signature.email}</p>
         </footer>
       </div>
+
+         {/* Render the bottom navigation */}
+      <footer>
+        <Navigation />
+      </footer>
+
     </div>
   );
 }

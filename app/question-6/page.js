@@ -2,6 +2,7 @@
 import QuestionLayout from "../components/QuestionsLayout";
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
+import Navigation from "../components/Nav"; // Navigation component
 import styles from "../components/Answer.module.css"; // Styles for the answer container
 
 export default function Question6() {
@@ -58,44 +59,51 @@ export default function Question6() {
   };
 
   return (
-    <QuestionLayout
-      title="Question 6"
-      questionContent={[
-        "An Enterprise customer, new to Next.js and Vercel, asks about a high usage bill regarding fast origin transfer and fast data transfer. They have two questions:",
-      ]}
-      subParts={[
-        "Why didnʼt my MIUs cover this bill? I didnʼt use all my MIUs last month…so why didnʼt those roll over?",
-        "What would be the best way to help mitigate this so we donʼt see these overage bills in the future?",
-        "Feel free to use AI to help supplement your answer, but only use AI to help guide your answer and put it into your own words. Help the customer by providing Vercel or Next.js resources if necessary.",
-        "Your Enterprise customer is an SMB customer, under 50 employees, with an ARR of $18,500. Their last overage bill was $1,800 and consisted primarily of fast data transfer and function duration.",
-        "MIU == Managed Infrastructure Unit and is a monthly entitlement for usage purchased by a customer that does not roll over every month.",
-      ]}
-    >
-      {/* Answer Container */}
-      <div className={styles.answerContainer}>
-        {/* Answer Title */}
-        <h1 className={styles.answerTitle}>{answer.title}</h1>
+    <div>
+      {/* Question Layout */}
+      <QuestionLayout
+        title="Question 6"
+        questionContent={[
+          "An Enterprise customer, new to Next.js and Vercel, asks about a high usage bill regarding fast origin transfer and fast data transfer. They have two questions:",
+        ]}
+        subParts={[
+          "Why didnʼt my MIUs cover this bill? I didnʼt use all my MIUs last month…so why didnʼt those roll over?",
+          "What would be the best way to help mitigate this so we donʼt see these overage bills in the future?",
+          "Feel free to use AI to help supplement your answer, but only use AI to help guide your answer and put it into your own words. Help the customer by providing Vercel or Next.js resources if necessary.",
+          "Your Enterprise customer is an SMB customer, under 50 employees, with an ARR of $18,500. Their last overage bill was $1,800 and consisted primarily of fast data transfer and function duration.",
+          "MIU == Managed Infrastructure Unit and is a monthly entitlement for usage purchased by a customer that does not roll over every month.",
+        ]}
+      >
+        {/* Answer Container */}
+        <div className={styles.answerContainer}>
+          {/* Answer Title */}
+          <h1 className={styles.answerTitle}>{answer.title}</h1>
 
-        {/* Subject Line */}
-        <SubjectLine subject={answer.subject} />
+          {/* Subject Line */}
+          <SubjectLine subject={answer.subject} />
 
-        {/* Greeting */}
-        <p className={styles.answerParagraph}>{answer.greeting}</p>
+          {/* Greeting */}
+          <p className={styles.answerGreeting}>{answer.greeting}</p>
 
-        {/* Answer Sections */}
-        {answer.content.map((section, index) => (
-          <AnswerSection key={index} section={section} />
-        ))}
+          {/* Answer Sections */}
+          {answer.content.map((section, index) => (
+            <AnswerSection key={index} section={section} />
+          ))}
 
-        {/* Render the signature */}
-        <footer className={styles.answerFooter}>
-          <p>Best,</p>
-          <p>{answer.signature.name}</p>
-          <p>{answer.signature.title}</p>
-          <p>{answer.signature.email}</p>
-        </footer>
-      </div>
-    </QuestionLayout>
+          {/* Render the signature */}
+          <footer className={styles.answerFooter}>
+            <p>Best,</p>
+            <p>{answer.signature.name}</p>
+            <p>{answer.signature.title}</p>
+            <p>{answer.signature.email}</p>
+          </footer>
+        </div>
+      </QuestionLayout>
+
+      {/* Bottom Navigation */}
+      <footer>
+        <Navigation />
+      </footer>
+    </div>
   );
 }
-

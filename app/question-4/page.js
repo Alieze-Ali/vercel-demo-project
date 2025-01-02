@@ -2,6 +2,7 @@
 import QuestionLayout from "../components/QuestionsLayout";
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
+import Navigation from "../components/Nav"; // Navigation component
 import styles from "../components/Answer.module.css"; // Styles for the answer container
 
 export default function Question4() {
@@ -42,39 +43,47 @@ export default function Question4() {
   };
 
   return (
-    <QuestionLayout
-      title="Question 4"
-      questionContent={[
-        "An Enterprise customer who has been sold Vercel through a reseller called Sitecore has reached out to the team to ask about the product. Can you give a brief 2–5 sentence introduction to Vercel to showcase what Vercel does?",
-      ]}
-      subParts={[
-        "Your new Enterprise customer is Acme Universityʼs Marketing Department and their lead point person is called Clara (she/her). They have no web development background and donʼt know what Vercel is.",
-      ]}
-    >
-      {/* Answer Container */}
-      <div className={styles.answerContainer}>
-        {/* Answer Title */}
-        <h1 className={styles.answerTitle}>{answer.title}</h1>
+    <div>
+      {/* Question Layout */}
+      <QuestionLayout
+        title="Question 4"
+        questionContent={[
+          "An Enterprise customer who has been sold Vercel through a reseller called Sitecore has reached out to the team to ask about the product. Can you give a brief 2–5 sentence introduction to Vercel to showcase what Vercel does?",
+        ]}
+        subParts={[
+          "Your new Enterprise customer is Acme Universityʼs Marketing Department and their lead point person is called Clara (she/her). They have no web development background and donʼt know what Vercel is.",
+        ]}
+      >
+        {/* Answer Container */}
+        <div className={styles.answerContainer}>
+          {/* Answer Title */}
+          <h1 className={styles.answerTitle}>{answer.title}</h1>
 
-        {/* Subject Line */}
-        <SubjectLine subject={answer.subject} />
+          {/* Subject Line */}
+          <SubjectLine subject={answer.subject} />
 
-        {/* Greeting */}
-        <p className={styles.answerParagraph}>{answer.greeting}</p>
+          {/* Greeting */}
+          <p className={styles.answerGreeting}>{answer.greeting}</p>
 
-        {/* Answer Sections */}
-        {answer.content.map((section, index) => (
-          <AnswerSection key={index} section={section} />
-        ))}
+          {/* Answer Sections */}
+          {answer.content.map((section, index) => (
+            <AnswerSection key={index} section={section} />
+          ))}
 
-        {/* Render the signature */}
-        <footer className={styles.answerFooter}>
-          <p>Best,</p>
-          <p>{answer.signature.name}</p>
-          <p>{answer.signature.title}</p>
-          <p>{answer.signature.email}</p>
-        </footer>
-      </div>
-    </QuestionLayout>
+          {/* Render the signature */}
+          <footer className={styles.answerFooter}>
+            <p>Best,</p>
+            <p>{answer.signature.name}</p>
+            <p>{answer.signature.title}</p>
+            <p>{answer.signature.email}</p>
+          </footer>
+        </div>
+      </QuestionLayout>
+
+      {/* Bottom Navigation */}
+      <footer>
+        <Navigation />
+      </footer>
+    </div>
   );
 }
