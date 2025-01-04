@@ -27,3 +27,19 @@
   .nav a:hover {
     color: #ccc;
   }
+
+  .logoLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo {
+    margin-right: 8px; /* Add space between logo and text */
+}
+
+.logoText {
+    font-size: 1rem; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ffffff; /* Adjust color if necessary */
+}
