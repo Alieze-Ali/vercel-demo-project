@@ -1,5 +1,20 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Description
+This project demonstrates my ability to effectively respond to real-world customer scenarios faced by a Customer Success Manager at Vercel. The project highlights my skills in analyzing customer needs, explaining technical concepts, and leveraging the App Router feature introduced in Next.js 13 to deliver solutions.
+
+## Features
+- **Read and Comprehend Technical Documentation**: Demonstrates the ability to extract key information and apply it to real-world scenarios.
+- **Next.js Template Manipulation and Deployment**: Modified a Next.js template to fit project requirements and deployed it seamlessly to Vercel.
+- **Explaining Technical Concepts**: Clear and concise responses to customer queries, tailored for an Enterprise audience.
+
+## Technologies Used
+- React: Component-based UI development.
+- Next.js 13: Utilized the App Router feature for routing and improved page organization.
+- CSS Modules: Scoped styling for a clean and consistent design.
+- Vercel: Deployment and hosting for seamless accessibility.
+
+
 ## Getting Started
 
 First, run the development server:

@@ -1,4 +1,3 @@
-// Import necessary components and styles
 import QuestionLayout from "../components/QuestionsLayout"; // Layout for the question
 import SubjectLine from "../components/SubjectLine"; // Component for the subject line
 import AnswerSection from "../components/AnswerSection"; // Component for rendering answer sections
@@ -47,9 +46,10 @@ export default function Question2() {
       },
       {
         sectionTitle: "Your Use Case: Geolocation-Based Personalization",
-        unorderedList: [
-          "Leverage Edge Middleware for geolocation-based logic.",
-          "Integrate Statsig to dynamically manage feature flags and rules for restricted regions.",
+        paragraphs: [
+          "Here’s how you can achieve personalization and geolocation-based restrictions with Vercel, Next.js, and Statsig:",
+          "Leverage Edge Middleware for geolocation-based logic. Middleware can check a user’s location (e.g., using their IP address) and compare it against restricted regions.",
+          "Integrate Statsig to dynamically manage and test rules like blocking delivery for specific regions. This gives you flexibility to roll out changes without redeploying code.",
         ],
       },
       {
@@ -83,6 +83,15 @@ export async function middleware(request) {
 
   return NextResponse.next();
 }`,
+        paragraphs: [
+          "This approach: Runs at the edge, ensuring low latency for geolocation checks. Uses Statsig for A/B testing and dynamic feature flag management. Keeps your application scalable and performant.",
+        ],
+      },
+      {
+        sectionTitle: "Why Next.js + Vercel + Statsig?",
+        paragraphs: [
+          "When combined, these tools play to each other’s strengths: Next.js simplifies server-side rendering (SSR) and static site generation (SSG), making it easy to serve dynamic content. Vercel ensures global speed and reliability with its Edge Network and seamless integration with Next.js. Statsig adds powerful A/B testing and feature management for targeted personalization. By running experiments at the edge, you can minimize layout shifts and improve performance metrics like Cumulative Layout Shift (CLS).",
+        ],
       },
       {
         sectionTitle: "Resources to Explore",
@@ -119,71 +128,46 @@ export async function middleware(request) {
       <QuestionLayout
         title="Question 2"
         questionContent={[
-          "A customer has reached out asking, when should I choose to use Edge Functions, Serverless Functions, or Edge Middleware with Vercel? Please reply to the customer.",
+          `A customer has reached out asking, "When should I choose to use Edge Functions, Serverless Functions, or Edge Middleware with Vercel?" Please reply to the customer.`,
         ]}
         subParts={[
-          "Your Enterprise customer is Trevor (they/them), a frontend developer at a winery using Next.js and Statsig. They are primarily interested in being able to use the Vercel platform with Next.js to do personalization for their online shop based on geolocation (some places donʼt allow for shipping of alcohol via delivery).",
+          "Your Enterprise customer is Trevor (they/them), a frontend developer at a winery using Next.js and Statsig. They are primarily interested in being able to use the Vercel platform with Next.js to do personalization when it comes to what they are able to offer in their online shop based on geolocation (some places donʼt allow for shipping of alcohol via delivery).",
         ]}
       >
-        {/* Answer Container */}
         <div className={styles.answerContainer}>
-          {/* Answer Title */}
           <h1 className={styles.answerTitle}>{answer.title}</h1>
-
-          {/* Subject Line */}
           <SubjectLine subject={answer.subject} />
-
-          {/* Greeting */}
           <p className={styles.answerGreeting}>{answer.greeting}</p>
-
-          {/* Render Answer Sections */}
           {answer.content.map((section, index) => {
             if (section.unorderedList) {
               return (
                 <div key={index} className={styles.answerSection}>
-                  <h3 className={styles.contentTitle}>
-                    {section.sectionTitle}
-                  </h3>
-                  <ul className={styles.unorderedList}>
-                    {section.unorderedList.map((item, idx) => {
-                      if (typeof item === "object") {
-                        return (
-                          <li key={idx}>
-                            <strong>{item.title}:</strong>
-                            <ul>
-                              {item.details.map((detail, i) => (
-                                <li key={i} className={styles.answerParagraph}>
-                                  {detail}
-                                </li>
-                              ))}
-                            </ul>
-                          </li>
-                        );
-                      }
-                      return (
-                        <li key={idx} className={styles.answerParagraph}>
-                          {item}
-                        </li>
-                      );
-                    })}
+                  <h3>{section.sectionTitle}</h3>
+                  <ul>
+                    {section.unorderedList.map((item, idx) => (
+                      <li key={idx}>
+                        <strong>{item.title}</strong>
+                        <ul>
+                          {item.details.map((detail, detailIdx) => (
+                            <li key={detailIdx}>{detail}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               );
             }
             return <AnswerSection key={index} section={section} />;
           })}
-
-          {/* Render the signature */}
           <footer className={styles.answerFooter}>
-            <p>Best,</p>
+            <p>Cheers,</p>
             <p>{answer.signature.name}</p>
             <p>{answer.signature.title}</p>
             <p>{answer.signature.email}</p>
           </footer>
         </div>
       </QuestionLayout>
-
-      {/* Bottom Navigation */}
       <footer className={styles.bottomNavigation}>
         <Navigation />
       </footer>

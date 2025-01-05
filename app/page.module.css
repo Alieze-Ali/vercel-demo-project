@@ -126,7 +126,7 @@ a.secondary {
   left: 0; /* Start at the left edge of the screen */
   right: 0; /* Ensure it spans across the page */
   width: 100vw; /* Full width of the viewport */
-  height: 50px; /* Consistent height */
+  height: 57px; /* Consistent height */
   display: flex; /* Use flexbox for alignment */
   justify-content: space-between; /* Add space between the links */
   align-items: center; /* Center the links vertically */

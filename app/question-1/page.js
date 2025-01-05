@@ -13,22 +13,23 @@ export default function Question1() {
 
   // Define additional details for the question
   const subParts = [
-    "Your customer is Christy (she/her), a project manager for the marketing department of a wearable tech company.",
+    "Your customer is Christy (she/her), a project manager for the marketing department of a wearable tech company - in charge of making sure the marketing pages meet their core web vitals, SEO best practices, and conversion rate goals.",
   ];
 
-  // Define the updated answer content
+  // Define the answer content
   const answer = {
     title: "Answer", // Main title of the answer section
     subject: "React vs. Next.js: What Your Marketing Team Needs to Know", // Email subject line
     greeting: "Hi Christy,", // Personalized greeting
 
-   content: [
-    {
-      sectionTitle: null, // No title for the intro section
-      paragraphs: [
-        "Thanks for reaching out with your question about React and Next.js—this is such an important topic, especially for marketing pages where performance, SEO, and conversions play a critical role.",
-      ],
-    },
+    content: [
+      // Introduction section
+      {
+        sectionTitle: null, // No title for the intro section
+        paragraphs: [
+          "Thanks for reaching out with your question about React and Next.js—this is such an important topic, especially for marketing pages where performance, SEO, and conversions play a critical role.",
+        ],
+      },
 
       // Section: React vs. Next.js
       {
@@ -38,6 +39,7 @@ export default function Question1() {
           "That’s where Next.js comes in. Next.js is a framework built on React that makes it easier to create high-performing, SEO-friendly websites. It’s like having a powerful toolkit that takes care of the heavy lifting, so your team can focus on creating impactful marketing content without worrying about all the behind-the-scenes technicalities.",
         ],
       },
+
       // Section: Why Next.js is a Game-Changer
       {
         sectionTitle: "Why Next.js is a Game-Changer for Your Team",
@@ -50,6 +52,7 @@ export default function Question1() {
           "Conversion Rate Goals: Performance directly impacts conversions—slow pages drive users away. Next.js, combined with Vercel, gives you the tools to keep your site fast and engaging. Features like A/B testing and Edge Middleware help you create personalized experiences for your visitors, which can significantly boost conversions.",
         ],
       },
+
       // Section: How to Get Started
       {
         sectionTitle: "How to Get Started with Next.js and Vercel",
@@ -64,13 +67,15 @@ export default function Question1() {
           "Leverage Real-Time Analytics: Keep an eye on user behavior, form submissions, and purchase funnels to continuously improve your site’s conversion rates.",
         ],
       },
-      // Final paragraph as an individual object
+
+      // Final paragraph
       {
         paragraphs: [
           "By using Next.js on Vercel, you’ll have a robust foundation that helps you deliver fast, SEO-friendly, and conversion-optimized marketing pages without getting bogged down in technical complexities. Let me know if you’d like a walkthrough or have any questions—I’m here to help!",
         ],
       },
     ],
+
     signature: {
       name: "Alieze", // Your name
       title: "Vercel Customer Success Manager", // Your title
@@ -107,11 +112,10 @@ export default function Question1() {
         </footer>
       </div>
 
-         {/* Render the bottom navigation */}
+      {/* Render the bottom navigation */}
       <footer>
         <Navigation />
       </footer>
-
     </div>
   );
 }

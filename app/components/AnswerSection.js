@@ -1,5 +1,4 @@
-// Import the styles from Answer.module.css
-import styles from "../components/Answer.module.css";
+import styles from "../components/Answer.module.css"; // Import styles
 
 const AnswerSection = ({ section }) => {
   return (
@@ -24,7 +23,19 @@ const AnswerSection = ({ section }) => {
         <ul className={styles.unorderedList}>
           {section.unorderedList.map((item, index) => (
             <li key={index} className={styles.answerParagraph}>
-              {item}
+              {/* Check if the item is an object with `title` and `details` keys */}
+              {item.title ? (
+                <>
+                  <strong>{item.title}:</strong>
+                  <ul>
+                    {item.details.map((detail, idx) => (
+                      <li key={idx}>{detail}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                item // Render item directly if it's not an object
+              )}
             </li>
           ))}
         </ul>
@@ -48,7 +59,7 @@ const AnswerSection = ({ section }) => {
         </pre>
       )}
 
-      {/* Render links as an unordered list if the `links` array exists */}
+      {/* Render links if the `links` array exists */}
       {section.links && (
         <ul className={styles.linkList}>
           {section.links.map((link, index) => (

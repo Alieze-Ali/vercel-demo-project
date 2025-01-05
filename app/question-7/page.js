@@ -39,7 +39,7 @@ export default function Question7() {
             title: "Enterprise Roadmap",
             description: `Stay ahead with insights into advanced features, security enhancements, and upcoming tools designed for large organizations. `,
             link: {
-              text: "See the Roadmap",
+              text: "See the Roadmap.",
               url: "https://vercel.com/docs/accounts/plans/enterprise",
             },
           },

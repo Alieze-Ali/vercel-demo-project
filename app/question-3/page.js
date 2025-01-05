@@ -11,25 +11,28 @@ export default function Question3() {
     subject: "Supporting Your Team and Maximizing Value with Vercel", // Email subject line
     greeting: "Hi Alex,", // Personalized greeting
     content: [
-      // Introductory paragraph
       {
         sectionTitle: null, // No title for the intro section
         paragraphs: [
           "I was reviewing your account and wanted to personally check in to see how we can best support your team. As a valued Enterprise customer, your success with Vercel is a top priority, and I want to ensure you’re making the most of everything your plan has to offer.",
         ],
       },
-      // Section: Challenges and Opportunities
       {
         sectionTitle: null, // No title for this section
         paragraphs: [
           "With only one developer on your team and Tanner no longer leading the project, I understand that transitions like this can bring challenges. I’d love to connect to better understand how things are going and explore ways Vercel can help bridge any gaps. For example, I’ve noticed some past build errors and would like to discuss opportunities to optimize your setup, including your Cloudflare integration.",
         ],
       },
-      // Section: Closing and Call to Action
       {
         sectionTitle: null, // No title for this section
         paragraphs: [
           "Would you be available for a quick chat next week? We can go over any specific challenges and identify ways to make things easier for your team. Afterward, I’d be happy to share resources or involve our technical team if needed.",
+        ],
+      },
+      {
+        sectionTitle: null, // No title for this section
+        paragraphs: [
+          "Looking forward to hearing from you!",
         ],
       },
     ],
@@ -49,7 +52,7 @@ export default function Question3() {
           "Through use of a monitoring dashboard, you notice that an Enterprise customer has reduced the number of builds and their usage has gone down by about half quarter over quarter. Please write an email to the champion and executive sponsor of the account to re-engage and start to perform some discovery.",
         ]}
         subParts={[
-          "Your customer is an SMB with yearly revenue about $5.5 million, 20 employees total with one developer. They have a $22K ARR Vercel subscription. The executive sponsor is the VP of marketing and Vercel hosts their marketing pages. They have a reverse proxy in front of Vercel (Cloudflare) and history shows some errors in their builds. The executive sponsorʼs name is Alex (she/her), Engineering Manager. The champion, Tanner– the lead on the project– it is found out, has left the company.",
+          "Your customer is an SMB with yearly revenue about $5.5 million, 20 employees total with one developer. They have a $22K ARR Vercel subscription. The executive sponsor is the VP of marketing and Vercel hosts their marketing pages. They have a reverse proxy in front of Vercel (Cloudflare) and history shows some errors in their builds. The executive sponsorʼs name is Alex (she/her), Engineering Manager. The champion, Tanner – the lead on the project – it is found out, has left the company.",
         ]}
       >
         {/* Answer Section */}
